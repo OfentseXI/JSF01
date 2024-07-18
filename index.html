@@ -39,5 +39,36 @@
             </div>
         </nav>
     </header>
+    <main class="container mx-auto px-4 py-6" x-data="{
+      products: [],
+      fetchProducts() {
+        fetch('https://fakestoreapi.com/products')
+          .then(response => response.json())
+          .then(data => {
+            this.products = data;
+            document.body.classList.add('loaded');
+          })
+          .catch(error => console.error('Error fetching products:', error));
+      }
+    }" x-init="fetchProducts()">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+  
+      <div class="loading-message text-center col-span-full">
+        <p>Loading the products...</p>
+      </div>
+  
+      <template x-for="product in products" :key="product.id">
+        <div class="bg-white shadow rounded">
+          <img :src="product.image" alt="Product Image" class="w-full">
+          <div class="p-4">
+            <h2 class="text-lg font-semibold" x-text="product.id"></h2>
+            <p class="text-gray-600" x-text="'$' + product.price"></p>
+            <button class="mt-4 bg-blue-400 text-white px-4 py-2 rounded hover:bg-blue-600">Add to Cart</button>
+          </div>
+        </div>
+      </template>
+    </div>
+  </main>
+
 </body>
 </html>
