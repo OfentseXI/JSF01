@@ -13,6 +13,7 @@
     <title>myCart - Shop Anything, Anywhere, Anytime! </title>
     <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/styles.css" rel="stylesheet" />
     <meta
       name="title"
       content="SwiftCart — The fastest e-commerce store in SA"
@@ -117,8 +118,8 @@
         </div>
       </div>
 
-    <!-- Product Grid -->
-<main class="max-w-screen-xl mx-auto mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <!-- Product Display -->
+<main class="flex mx-2 mt-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 overflow-auto">
   <template x-for="product in filteredProducts" :key="product.id">
     <div class="bg-white p-4 rounded shadow hover:shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300" x-on:click="openModal(product.id)">
       <div>
