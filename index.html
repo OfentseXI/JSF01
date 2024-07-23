@@ -122,7 +122,7 @@
   <template x-for="product in filteredProducts" :key="product.id">
     <div class="bg-white p-4 rounded shadow hover:shadow-lg cursor-pointer transform hover:scale-105 transition-transform duration-300" x-on:click="openModal(product.id)">
       <div>
-        <img :src="product.image" :alt="product.title" class="h-48 mt-3 object-contain rounded w-20%" />
+        <img :src="product.image" :alt="product.title" class="flex justify-center h-48 mt-4 object-contain rounded w-20%" />
         <h3 class="text-lg line-clamp-2 font-extrabold leading-snug text-slate-600 mt-2" x-text="product.title"></h3>
         <div class="text-base line-clamp-2 font-extrabold text-slate-700 leading-snug">
           <h2 x-text="'$' + product.price"></h2>
